@@ -1,6 +1,7 @@
 package org
 
 import scala.concurrent.ExecutionContext
+import scala.util.{Failure, Success, Try}
 
 package object learningconcurrency {
 
@@ -18,5 +19,9 @@ package object learningconcurrency {
     override def run(): Unit = body
   })
 
+  def handleMessage(t: Try[String]): Unit = t match {
+    case Failure(exception) => log(s"unexpected failure - $exception")
+    case Success(value) => log(value)
+  }
 
 }

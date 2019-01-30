@@ -8,7 +8,12 @@ resolvers ++= Seq(
   "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases"
 )
 
-libraryDependencies += "commons-io" % "commons-io" % "2.4"
+libraryDependencies ++= Seq(
+  "commons-io" % "commons-io" % "2.4",
+  "org.scala-lang.modules" %% "scala-async" % "0.9.1",
+  "org.scalaz" %% "scalaz-concurrent" % "7.0.6",
+  "com.storm-enroute" %% "scalameter-core" % "0.6"
+)
 
 // Run in the same jvm as sbt
 fork := false
